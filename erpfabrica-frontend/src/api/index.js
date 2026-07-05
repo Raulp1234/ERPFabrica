@@ -4,7 +4,7 @@ import router from '@/router';
 
 // Crear instancia de axios con configuración base
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -21,10 +21,14 @@ apiClient.interceptors.request.use(
     }
     
     // Agregar tenantId a la URL si no está presente y tenemos uno en el store
-    if (authStore.tenantId && !config.url.includes('{tenantId}')) {
-      // Si la URL ya contiene el tenantId, no hacer nada
-      if (!config.url.match(/^\/api\/[^/]+\//)) {
-        config.url = `/api/${authStore.tenantId}${config.url}`;
+    // Solo si la URL no comienza ya con el tenantId
+    if (authStore.tenantId && config.url) {
+      // Verificar si la URL ya comienza con el tenantId (ej: /abc123/dashboard)
+      const yaTieneTenantId = /^\/[a-f0-9-]+(?:\/|$)/i.test(config.url);
+      
+      if (!yaTieneTenantId) {
+        // Agregar tenantId al inicio de la URL
+        config.url = `/${authStore.tenantId}${config.url}`;
       }
     }
     

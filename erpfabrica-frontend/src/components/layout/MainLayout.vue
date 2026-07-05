@@ -214,7 +214,7 @@
 
       <!-- Área de contenido -->
       <main class="content-area">
-        <router-view />
+        <slot />
       </main>
     </div>
   </div>

@@ -4,6 +4,7 @@ import MainLayout from '../src/components/layout/MainLayout.vue'
 import { useAuthStore } from '../src/stores/auth.js'
 
 const authStore = useAuthStore()
+const route = useRoute()
 
 // Cargar datos de autenticación desde localStorage al iniciar
 onMounted(() => {
@@ -11,15 +12,25 @@ onMounted(() => {
     authStore.loadFromStorage()
   }
 })
+
+// Determinar si debemos usar el layout principal o no (para login)
+const shouldUseLayout = computed(() => {
+  return route.name !== 'Login'
+})
 </script>
 
 <template>
   <div id="app">
-    <router-view v-slot="{ Component, route }">
-      <component :is="route.meta.layout || MainLayout" :key="route.fullPath">
-        <Component :is="Component" />
-      </component>
-    </router-view>
+    <RouterView v-slot="{ Component, route: currentRoute }">
+      <Transition name="fade" mode="out-in">
+        <component 
+          :is="shouldUseLayout ? MainLayout : 'div'" 
+          :key="currentRoute.fullPath"
+        >
+          <Component :is="Component" />
+        </component>
+      </Transition>
+    </RouterView>
   </div>
 </template>
 
