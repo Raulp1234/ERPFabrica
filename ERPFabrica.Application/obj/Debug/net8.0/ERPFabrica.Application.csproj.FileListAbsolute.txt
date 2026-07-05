@@ -1,0 +1,15 @@
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\bin\Debug\net8.0\ERPFabrica.Application.deps.json
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\bin\Debug\net8.0\ERPFabrica.Application.dll
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\bin\Debug\net8.0\ERPFabrica.Application.pdb
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\bin\Debug\net8.0\ERPFabrica.Domain.dll
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\bin\Debug\net8.0\ERPFabrica.Domain.pdb
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\obj\Debug\net8.0\ERPFabrica.Application.csproj.AssemblyReference.cache
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\obj\Debug\net8.0\ERPFabrica.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\obj\Debug\net8.0\ERPFabrica.Application.AssemblyInfoInputs.cache
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\obj\Debug\net8.0\ERPFabrica.Application.AssemblyInfo.cs
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\obj\Debug\net8.0\ERPFabrica.Application.csproj.CoreCompileInputs.cache
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\obj\Debug\net8.0\ERPFabri.EC2302A2.Up2Date
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\obj\Debug\net8.0\ERPFabrica.Application.dll
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\obj\Debug\net8.0\refint\ERPFabrica.Application.dll
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\obj\Debug\net8.0\ERPFabrica.Application.pdb
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Application\obj\Debug\net8.0\ref\ERPFabrica.Application.dll

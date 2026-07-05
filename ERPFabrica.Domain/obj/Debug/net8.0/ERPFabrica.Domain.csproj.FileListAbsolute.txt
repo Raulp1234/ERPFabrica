@@ -1,0 +1,11 @@
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Domain\bin\Debug\net8.0\ERPFabrica.Domain.deps.json
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Domain\bin\Debug\net8.0\ERPFabrica.Domain.dll
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Domain\bin\Debug\net8.0\ERPFabrica.Domain.pdb
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Domain\obj\Debug\net8.0\ERPFabrica.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Domain\obj\Debug\net8.0\ERPFabrica.Domain.AssemblyInfoInputs.cache
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Domain\obj\Debug\net8.0\ERPFabrica.Domain.AssemblyInfo.cs
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Domain\obj\Debug\net8.0\ERPFabrica.Domain.csproj.CoreCompileInputs.cache
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Domain\obj\Debug\net8.0\ERPFabrica.Domain.dll
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Domain\obj\Debug\net8.0\refint\ERPFabrica.Domain.dll
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Domain\obj\Debug\net8.0\ERPFabrica.Domain.pdb
+C:\Proyectos\SAAS\ERPFabrica\ERPFabrica.Domain\obj\Debug\net8.0\ref\ERPFabrica.Domain.dll
