@@ -1,4 +1,4 @@
-import axios from 'axios';
+/* import axios from 'axios';
 import { useAuthStore } from '@/stores/auth';
 import router from '@/router';
 
@@ -65,6 +65,45 @@ apiClient.interceptors.response.use(
       }
     }
     
+    return Promise.reject(error);
+  }
+);
+
+export default apiClient;
+ */
+
+// api.js
+import axios from 'axios';
+
+const apiClient = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000',
+});
+
+apiClient.interceptors.request.use(config => {
+  const token = localStorage.getItem('token'); // acceso directo
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  
+  // tenantId también desde localStorage
+  const tenantId = localStorage.getItem('tenantId');
+  if (tenantId && !config.url.includes('{tenantId}')) {
+    if (!config.url.match(/^\/api\/[^/]+\//)) {
+      config.url = `/api/${tenantId}${config.url}`;
+    }
+  }
+  return config;
+});
+
+apiClient.interceptors.response.use(
+  response => response,
+  async error => {
+    if (error.response?.status === 401) {
+      // importación dinámica para evitar dependencia circular
+      const { useAuthStore } = await import('../stores/auth');
+      const authStore = useAuthStore();
+      authStore.logout();
+      const router = (await import('../router')).default;
+      router.push('/login');
+    }
     return Promise.reject(error);
   }
 );

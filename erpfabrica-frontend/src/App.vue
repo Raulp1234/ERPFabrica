@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from 'vue'
-import MainLayout from '@/components/layout/MainLayout.vue'
-import { useAuthStore } from '@/stores/auth'
+import MainLayout from '../src/components/layout/MainLayout.vue'
+import { useAuthStore } from '../src/stores/auth.js'
 
 const authStore = useAuthStore()
 

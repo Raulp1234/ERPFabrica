@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import apiClient from '@/api';
+import apiClient from 'src/api';
 
 export const useInventarioStore = defineStore('inventario', {
   state: () => ({
