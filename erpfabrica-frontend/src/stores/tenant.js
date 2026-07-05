@@ -33,7 +33,8 @@ export const useTenantConfigStore = defineStore('tenantConfig', {
       this.error = null;
       
       try {
-        const response = await apiClient.get(`/${tenantId}/config`);
+    /*    const response = await apiClient.get(`/${tenantId}/config`);   */
+          const response = await apiClient.get(`/config`);  
         this.config = response.data;
         
         // Aplicar variables CSS dinámicas
@@ -53,7 +54,8 @@ export const useTenantConfigStore = defineStore('tenantConfig', {
       this.error = null;
       
       try {
-        const response = await apiClient.put(`/${this.config.tenantId}/config`, configData);
+        /* const response = await apiClient.put(`/${this.config.tenantId}/config`, configData); */
+        const response = await apiClient.put(`/config`, configData);
         this.config = response.data;
         
         // Aplicar nuevos estilos

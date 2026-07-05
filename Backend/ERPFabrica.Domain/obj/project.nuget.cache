@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ODOUxB4mIOA=",
+  "dgSpecHash": "PMICzNElbME=",
   "success": true,
-  "projectFilePath": "C:\\Proyectos\\SAAS\\ERPFabrica\\ERPFabrica.Domain\\ERPFabrica.Domain.csproj",
+  "projectFilePath": "C:\\Proyectos\\SAAS\\ERPFabrica\\Backend\\ERPFabrica.Domain\\ERPFabrica.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

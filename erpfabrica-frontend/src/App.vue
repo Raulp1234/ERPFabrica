@@ -1,8 +1,8 @@
 <script setup>
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import MainLayout from '../src/components/layout/MainLayout.vue'
 import { useAuthStore } from '../src/stores/auth.js'
-
+import { useRoute, RouterView } from 'vue-router'
 const authStore = useAuthStore()
 const route = useRoute()
 

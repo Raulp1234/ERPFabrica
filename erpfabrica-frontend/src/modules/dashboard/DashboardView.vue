@@ -209,8 +209,8 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
-import apiClient from '@/api';
-import { useTenantConfigStore } from '@/stores/tenant';
+import apiClient from '../../api';
+import { useTenantConfigStore } from '../../stores/tenant';
 import { toast } from 'vue3-toastify';
 
 const route = useRoute();

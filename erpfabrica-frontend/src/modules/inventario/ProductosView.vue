@@ -28,7 +28,11 @@
             </div>
           </div>
           <div class="col-md-4">
-            <select class="form-select" v-model="filtros.categoriaId" @change="buscarProductos">
+            <select
+              class="form-select"
+              v-model="filtros.categoriaId"
+              @change="buscarProductos"
+            >
               <option value="">Todas las categorías</option>
               <option v-for="cat in categorias" :key="cat.id" :value="cat.id">
                 {{ cat.nombre }}
@@ -36,7 +40,10 @@
             </select>
           </div>
           <div class="col-md-2">
-            <button class="btn btn-outline-secondary w-100" @click="resetFiltros">
+            <button
+              class="btn btn-outline-secondary w-100"
+              @click="resetFiltros"
+            >
               <i class="bi bi-x-circle"></i>
               Limpiar
             </button>
@@ -62,36 +69,45 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="producto in inventarioStore.productos" :key="producto.id">
-                <td><code>{{ producto.codigoSKU }}</code></td>
+              <tr
+                v-for="producto in inventarioStore.productos"
+                :key="producto.id"
+              >
+                <td>
+                  <code>{{ producto.codigoSKU }}</code>
+                </td>
                 <td>{{ producto.nombre }}</td>
-                <td>{{ producto.categoriaNombre || '-' }}</td>
-                <td class="text-end">{{ formatCurrency(producto.precioCosto) }}</td>
-                <td class="text-end fw-bold">{{ formatCurrency(producto.precioVenta) }}</td>
+                <td>{{ producto.categoriaNombre || "-" }}</td>
+                <td class="text-end">
+                  {{ formatCurrency(producto.precioCosto) }}
+                </td>
+                <td class="text-end fw-bold">
+                  {{ formatCurrency(producto.precioVenta) }}
+                </td>
                 <td class="text-center">
-                  <span 
+                  <span
                     class="badge"
                     :class="producto.esActivo ? 'bg-success' : 'bg-secondary'"
                   >
-                    {{ producto.esActivo ? 'Activo' : 'Inactivo' }}
+                    {{ producto.esActivo ? "Activo" : "Inactivo" }}
                   </span>
                 </td>
                 <td class="text-end">
-                  <button 
+                  <button
                     class="btn btn-sm btn-outline-primary me-1"
                     @click="verProducto(producto.id)"
                     title="Ver detalle"
                   >
                     <i class="bi bi-eye"></i>
                   </button>
-                  <button 
+                  <button
                     class="btn btn-sm btn-outline-secondary me-1"
                     @click="editarProducto(producto)"
                     title="Editar"
                   >
                     <i class="bi bi-pencil"></i>
                   </button>
-                  <button 
+                  <button
                     class="btn btn-sm btn-outline-danger"
                     @click="confirmarEliminar(producto)"
                     title="Eliminar"
@@ -100,7 +116,11 @@
                   </button>
                 </td>
               </tr>
-              <tr v-if="!inventarioStore.productos?.length && !inventarioStore.loading">
+              <tr
+                v-if="
+                  !inventarioStore.productos?.length && !inventarioStore.loading
+                "
+              >
                 <td colspan="7" class="text-center py-5 text-muted">
                   <i class="bi bi-inbox display-6 d-block mb-2"></i>
                   No hay productos registrados
@@ -123,22 +143,31 @@
         <nav aria-label="Paginación">
           <ul class="pagination justify-content-center mb-0">
             <li class="page-item" :class="{ disabled: paginaActual === 1 }">
-              <button class="page-link" @click="cambiarPagina(paginaActual - 1)">
+              <button
+                class="page-link"
+                @click="cambiarPagina(paginaActual - 1)"
+              >
                 <i class="bi bi-chevron-left"></i>
               </button>
             </li>
-            <li 
-              v-for="pagina in totalPaginas" 
+            <li
+              v-for="pagina in totalPaginas"
               :key="pagina"
-              class="page-item" 
+              class="page-item"
               :class="{ active: pagina === paginaActual }"
             >
               <button class="page-link" @click="cambiarPagina(pagina)">
                 {{ pagina }}
               </button>
             </li>
-            <li class="page-item" :class="{ disabled: paginaActual === totalPaginas }">
-              <button class="page-link" @click="cambiarPagina(paginaActual + 1)">
+            <li
+              class="page-item"
+              :class="{ disabled: paginaActual === totalPaginas }"
+            >
+              <button
+                class="page-link"
+                @click="cambiarPagina(paginaActual + 1)"
+              >
                 <i class="bi bi-chevron-right"></i>
               </button>
             </li>
@@ -148,9 +177,9 @@
     </div>
 
     <!-- Modal Crear/Editar Producto -->
-    <div 
-      class="modal fade" 
-      id="modalProducto" 
+    <div
+      class="modal fade"
+      id="modalProducto"
       tabindex="-1"
       ref="modalProductoRef"
     >
@@ -158,44 +187,48 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">
-              {{ modoEdicion ? 'Editar Producto' : 'Nuevo Producto' }}
+              {{ modoEdicion ? "Editar Producto" : "Nuevo Producto" }}
             </h5>
-            <button type="button" class="btn-close" @click="cerrarModal"></button>
+            <button
+              type="button"
+              class="btn-close"
+              @click="cerrarModal"
+            ></button>
           </div>
           <div class="modal-body">
             <form @submit.prevent="guardarProducto">
               <div class="row g-3">
                 <div class="col-md-6">
                   <label class="form-label">Código SKU *</label>
-                  <input 
-                    type="text" 
-                    class="form-control" 
+                  <input
+                    type="text"
+                    class="form-control"
                     v-model="formulario.codigoSKU"
                     required
                   />
                 </div>
                 <div class="col-md-6">
                   <label class="form-label">Nombre *</label>
-                  <input 
-                    type="text" 
-                    class="form-control" 
+                  <input
+                    type="text"
+                    class="form-control"
                     v-model="formulario.nombre"
                     required
                   />
                 </div>
                 <div class="col-12">
                   <label class="form-label">Descripción</label>
-                  <textarea 
-                    class="form-control" 
+                  <textarea
+                    class="form-control"
                     v-model="formulario.descripcion"
                     rows="3"
                   ></textarea>
                 </div>
                 <div class="col-md-4">
                   <label class="form-label">Precio Costo *</label>
-                  <input 
-                    type="number" 
-                    class="form-control" 
+                  <input
+                    type="number"
+                    class="form-control"
                     v-model.number="formulario.precioCosto"
                     step="0.01"
                     min="0"
@@ -204,9 +237,9 @@
                 </div>
                 <div class="col-md-4">
                   <label class="form-label">Precio Venta *</label>
-                  <input 
-                    type="number" 
-                    class="form-control" 
+                  <input
+                    type="number"
+                    class="form-control"
                     v-model.number="formulario.precioVenta"
                     step="0.01"
                     min="0"
@@ -235,27 +268,36 @@
                 </div>
                 <div class="col-md-6">
                   <label class="form-label">Categoría</label>
-                  <select class="form-select" v-model="formulario.categoriaProductoId">
+                  <select
+                    class="form-select"
+                    v-model="formulario.categoriaProductoId"
+                  >
                     <option value="">Sin categoría</option>
-                    <option v-for="cat in categorias" :key="cat.id" :value="cat.id">
+                    <option
+                      v-for="cat in categorias"
+                      :key="cat.id"
+                      :value="cat.id"
+                    >
                       {{ cat.nombre }}
                     </option>
                   </select>
                 </div>
-                
+
                 <!-- Campos extra dinámicos -->
                 <div v-if="camposExtra.length" class="col-12">
                   <hr />
                   <h6>Campos Personalizados</h6>
                   <div class="row g-3">
-                    <div 
-                      v-for="campo in camposExtra" 
+                    <div
+                      v-for="campo in camposExtra"
                       :key="campo.id"
                       class="col-md-6"
                     >
                       <label class="form-label">
                         {{ campo.nombreCampo }}
-                        <span v-if="campo.esRequerido" class="text-danger">*</span>
+                        <span v-if="campo.esRequerido" class="text-danger"
+                          >*</span
+                        >
                       </label>
                       <component
                         :is="getInputType(campo.tipoDato)"
@@ -270,17 +312,24 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" @click="cerrarModal">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              @click="cerrarModal"
+            >
               Cancelar
             </button>
-            <button 
-              type="button" 
+            <button
+              type="button"
               class="btn btn-primary"
               @click="guardarProducto"
               :disabled="guardando"
             >
-              <span v-if="guardando" class="spinner-border spinner-border-sm me-2"></span>
-              {{ guardando ? 'Guardando...' : 'Guardar' }}
+              <span
+                v-if="guardando"
+                class="spinner-border spinner-border-sm me-2"
+              ></span>
+              {{ guardando ? "Guardando..." : "Guardar" }}
             </button>
           </div>
         </div>
@@ -290,13 +339,13 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, computed } from 'vue';
-import { useRouter } from 'vue-router';
-import { useInventarioStore } from '@/stores/inventario';
-import { useCamposExtraStore } from '@/stores/camposExtra';
-import { useTenantConfigStore } from '@/stores/tenant';
-import { toast } from 'vue3-toastify';
-import { Modal } from 'bootstrap';
+import { ref, reactive, onMounted, computed } from "vue";
+import { useRouter } from "vue-router";
+import { useInventarioStore } from "../../stores/inventario";
+import { useCamposExtraStore } from "../../stores/camposExtra";
+import { useTenantConfigStore } from "../../stores/tenant";
+import { toast } from "vue3-toastify";
+import { Modal } from "bootstrap";
 
 const router = useRouter();
 const inventarioStore = useInventarioStore();
@@ -307,22 +356,22 @@ const modalProductoRef = ref(null);
 let modalInstance = null;
 
 const filtros = reactive({
-  busqueda: '',
-  categoriaId: '',
+  busqueda: "",
+  categoriaId: "",
   pagina: 1,
   limite: 10,
 });
 
 const formulario = reactive({
   id: null,
-  codigoSKU: '',
-  nombre: '',
-  descripcion: '',
+  codigoSKU: "",
+  nombre: "",
+  descripcion: "",
   precioCosto: 0,
   precioVenta: 0,
-  tipoProducto: 'producto',
-  unidadMedida: 'unidad',
-  categoriaProductoId: '',
+  tipoProducto: "producto",
+  unidadMedida: "unidad",
+  categoriaProductoId: "",
   valoresExtra: {},
 });
 
@@ -332,12 +381,14 @@ const categorias = ref([]);
 const camposExtra = ref([]);
 
 const paginaActual = computed(() => filtros.pagina);
-const totalPaginas = computed(() => Math.ceil(inventarioStore.pagination.total / filtros.limite));
+const totalPaginas = computed(() =>
+  Math.ceil(inventarioStore.pagination.total / filtros.limite),
+);
 
 const formatCurrency = (value) => {
-  const moneda = tenantConfigStore.monedaPorDefecto || 'USD';
-  return new Intl.NumberFormat('es-MX', {
-    style: 'currency',
+  const moneda = tenantConfigStore.monedaPorDefecto || "USD";
+  return new Intl.NumberFormat("es-MX", {
+    style: "currency",
     currency: moneda,
   }).format(value);
 };
@@ -348,17 +399,17 @@ const cargarProductos = async () => {
 
 const cargarCategorias = async () => {
   try {
-    categorias.value = await inventarioStore.obtenerCategorias('producto');
+    categorias.value = await inventarioStore.obtenerCategorias("producto");
   } catch (error) {
-    console.error('Error al cargar categorías:', error);
+    console.error("Error al cargar categorías:", error);
   }
 };
 
 const cargarCamposExtra = async () => {
   try {
-    camposExtra.value = await camposExtraStore.obtenerDefiniciones('Producto');
+    camposExtra.value = await camposExtraStore.obtenerDefiniciones("Producto");
   } catch (error) {
-    console.error('Error al cargar campos extra:', error);
+    console.error("Error al cargar campos extra:", error);
   }
 };
 
@@ -368,8 +419,8 @@ const buscarProductos = () => {
 };
 
 const resetFiltros = () => {
-  filtros.busqueda = '';
-  filtros.categoriaId = '';
+  filtros.busqueda = "";
+  filtros.categoriaId = "";
   filtros.pagina = 1;
   cargarProductos();
 };
@@ -393,12 +444,12 @@ const editarProducto = (producto) => {
     id: producto.id,
     codigoSKU: producto.codigoSKU,
     nombre: producto.nombre,
-    descripcion: producto.descripcion || '',
+    descripcion: producto.descripcion || "",
     precioCosto: producto.precioCosto,
     precioVenta: producto.precioVenta,
     tipoProducto: producto.tipoProducto,
     unidadMedida: producto.unidadMedida,
-    categoriaProductoId: producto.categoriaProductoId || '',
+    categoriaProductoId: producto.categoriaProductoId || "",
     valoresExtra: producto.valoresExtra || {},
   });
   modalInstance = new Modal(modalProductoRef.value);
@@ -413,21 +464,21 @@ const confirmarEliminar = async (producto) => {
   if (confirm(`¿Estás seguro de eliminar el producto "${producto.nombre}"?`)) {
     try {
       await inventarioStore.eliminarProducto(producto.id);
-      toast.success('Producto eliminado correctamente');
+      toast.success("Producto eliminado correctamente");
       cargarProductos();
     } catch (error) {
-      toast.error('Error al eliminar producto');
+      toast.error("Error al eliminar producto");
     }
   }
 };
 
 const guardarProducto = async () => {
   guardando.value = true;
-  
+
   try {
     // Convertir valoresExtra al formato esperado por la API
     const valoresExtraArray = Object.entries(formulario.valoresExtra)
-      .filter(([_, valor]) => valor !== '' && valor !== null)
+      .filter(([_, valor]) => valor !== "" && valor !== null)
       .map(([campoExtraDefinicionId, valor]) => ({
         campoExtraDefinicionId,
         valor,
@@ -440,16 +491,16 @@ const guardarProducto = async () => {
 
     if (modoEdicion.value) {
       await inventarioStore.actualizarProducto(formulario.id, productoData);
-      toast.success('Producto actualizado correctamente');
+      toast.success("Producto actualizado correctamente");
     } else {
       await inventarioStore.crearProducto(productoData);
-      toast.success('Producto creado correctamente');
+      toast.success("Producto creado correctamente");
     }
-    
+
     cerrarModal();
     cargarProductos();
   } catch (error) {
-    toast.error(error.response?.data?.message || 'Error al guardar producto');
+    toast.error(error.response?.data?.message || "Error al guardar producto");
   } finally {
     guardando.value = false;
   }
@@ -465,27 +516,27 @@ const cerrarModal = () => {
 const resetearFormulario = () => {
   Object.assign(formulario, {
     id: null,
-    codigoSKU: '',
-    nombre: '',
-    descripcion: '',
+    codigoSKU: "",
+    nombre: "",
+    descripcion: "",
     precioCosto: 0,
     precioVenta: 0,
-    tipoProducto: 'producto',
-    unidadMedida: 'unidad',
-    categoriaProductoId: '',
+    tipoProducto: "producto",
+    unidadMedida: "unidad",
+    categoriaProductoId: "",
     valoresExtra: {},
   });
 };
 
 const getInputType = (tipoDato) => {
   const tipos = {
-    texto: 'input',
-    numero: 'input',
-    fecha: 'input',
-    booleano: 'input',
-    seleccion: 'select',
+    texto: "input",
+    numero: "input",
+    fecha: "input",
+    booleano: "input",
+    seleccion: "select",
   };
-  return tipos[tipoDato] || 'input';
+  return tipos[tipoDato] || "input";
 };
 
 onMounted(() => {

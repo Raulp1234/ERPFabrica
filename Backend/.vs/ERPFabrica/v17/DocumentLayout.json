@@ -1,26 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Proyectos\\SAAS\\ERPFabrica\\",
+  "WorkspaceRootPath": "C:\\Proyectos\\SAAS\\ERPFabrica\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2092EE9A-313E-4FDD-944F-E37C37640ACD}|ERPFabrica.Application\\ERPFabrica.Application.csproj|c:\\proyectos\\saas\\erpfabrica\\erpfabrica.application\\services\\productoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2092EE9A-313E-4FDD-944F-E37C37640ACD}|ERPFabrica.Application\\ERPFabrica.Application.csproj|solutionrelative:erpfabrica.application\\services\\productoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2092EE9A-313E-4FDD-944F-E37C37640ACD}|ERPFabrica.Application\\ERPFabrica.Application.csproj|c:\\proyectos\\saas\\erpfabrica\\erpfabrica.application\\services\\tenantservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2092EE9A-313E-4FDD-944F-E37C37640ACD}|ERPFabrica.Application\\ERPFabrica.Application.csproj|solutionrelative:erpfabrica.application\\services\\tenantservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2092EE9A-313E-4FDD-944F-E37C37640ACD}|ERPFabrica.Application\\ERPFabrica.Application.csproj|c:\\proyectos\\saas\\erpfabrica\\erpfabrica.application\\interfaces\\itenantservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2092EE9A-313E-4FDD-944F-E37C37640ACD}|ERPFabrica.Application\\ERPFabrica.Application.csproj|solutionrelative:erpfabrica.application\\interfaces\\itenantservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{15BDB1C1-E2F5-4D6B-A2C1-1BCFBB2B34D7}|ERPFabrica.Infrastructure\\ERPFabrica.Infrastructure.csproj|c:\\proyectos\\saas\\erpfabrica\\erpfabrica.infrastructure\\data\\coredbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{15BDB1C1-E2F5-4D6B-A2C1-1BCFBB2B34D7}|ERPFabrica.Infrastructure\\ERPFabrica.Infrastructure.csproj|solutionrelative:erpfabrica.infrastructure\\data\\coredbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2092EE9A-313E-4FDD-944F-E37C37640ACD}|ERPFabrica.Application\\ERPFabrica.Application.csproj|c:\\proyectos\\saas\\erpfabrica\\erpfabrica.application\\interfaces\\iapplicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2092EE9A-313E-4FDD-944F-E37C37640ACD}|ERPFabrica.Application\\ERPFabrica.Application.csproj|solutionrelative:erpfabrica.application\\interfaces\\iapplicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{078B1685-AB07-48B5-81C2-9A274B9ABBAF}|ERPFabrica.WebApi\\ERPFabrica.WebApi.csproj|c:\\proyectos\\saas\\erpfabrica\\backend\\erpfabrica.webapi\\controllers\\tenantconfigcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{078B1685-AB07-48B5-81C2-9A274B9ABBAF}|ERPFabrica.WebApi\\ERPFabrica.WebApi.csproj|solutionrelative:erpfabrica.webapi\\controllers\\tenantconfigcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 584,
-          "SelectedChildIndex": 38,
+          "SelectedChildIndex": 34,
           "Children": [
             {
               "$type": "Bookmark",
@@ -170,67 +154,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ITenantService.cs",
-              "DocumentMoniker": "C:\\Proyectos\\SAAS\\ERPFabrica\\ERPFabrica.Application\\Interfaces\\ITenantService.cs",
-              "RelativeDocumentMoniker": "ERPFabrica.Application\\Interfaces\\ITenantService.cs",
-              "ToolTip": "C:\\Proyectos\\SAAS\\ERPFabrica\\ERPFabrica.Application\\Interfaces\\ITenantService.cs",
-              "RelativeToolTip": "ERPFabrica.Application\\Interfaces\\ITenantService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-05T02:24:33.25Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TenantService.cs",
-              "DocumentMoniker": "C:\\Proyectos\\SAAS\\ERPFabrica\\ERPFabrica.Application\\Services\\TenantService.cs",
-              "RelativeDocumentMoniker": "ERPFabrica.Application\\Services\\TenantService.cs",
-              "ToolTip": "C:\\Proyectos\\SAAS\\ERPFabrica\\ERPFabrica.Application\\Services\\TenantService.cs",
-              "RelativeToolTip": "ERPFabrica.Application\\Services\\TenantService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-05T02:22:29.218Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CoreDbContext.cs",
-              "DocumentMoniker": "C:\\Proyectos\\SAAS\\ERPFabrica\\ERPFabrica.Infrastructure\\Data\\CoreDbContext.cs",
-              "RelativeDocumentMoniker": "ERPFabrica.Infrastructure\\Data\\CoreDbContext.cs",
-              "ToolTip": "C:\\Proyectos\\SAAS\\ERPFabrica\\ERPFabrica.Infrastructure\\Data\\CoreDbContext.cs",
-              "RelativeToolTip": "ERPFabrica.Infrastructure\\Data\\CoreDbContext.cs",
-              "ViewState": "AQIAACUBAAAAAAAAAAAiwDMBAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-05T01:57:30.999Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Proyectos\\SAAS\\ERPFabrica\\ERPFabrica.Application\\Interfaces\\IApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "ERPFabrica.Application\\Interfaces\\IApplicationDbContext.cs",
-              "ToolTip": "C:\\Proyectos\\SAAS\\ERPFabrica\\ERPFabrica.Application\\Interfaces\\IApplicationDbContext.cs",
-              "RelativeToolTip": "ERPFabrica.Application\\Interfaces\\IApplicationDbContext.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAIA7wDIAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-05T01:56:37.088Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProductoService.cs",
-              "DocumentMoniker": "C:\\Proyectos\\SAAS\\ERPFabrica\\ERPFabrica.Application\\Services\\ProductoService.cs",
-              "RelativeDocumentMoniker": "ERPFabrica.Application\\Services\\ProductoService.cs",
-              "ToolTip": "C:\\Proyectos\\SAAS\\ERPFabrica\\ERPFabrica.Application\\Services\\ProductoService.cs",
-              "RelativeToolTip": "ERPFabrica.Application\\Services\\ProductoService.cs",
-              "ViewState": "AQIAAIgAAAAAAAAAAAAkwJoAAAA5AAAA",
+              "Title": "TenantConfigController.cs",
+              "DocumentMoniker": "C:\\Proyectos\\SAAS\\ERPFabrica\\Backend\\ERPFabrica.WebApi\\Controllers\\TenantConfigController.cs",
+              "RelativeDocumentMoniker": "ERPFabrica.WebApi\\Controllers\\TenantConfigController.cs",
+              "ToolTip": "C:\\Proyectos\\SAAS\\ERPFabrica\\Backend\\ERPFabrica.WebApi\\Controllers\\TenantConfigController.cs",
+              "RelativeToolTip": "ERPFabrica.WebApi\\Controllers\\TenantConfigController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-05T01:51:22.358Z",
+              "WhenOpened": "2026-07-05T05:49:25.802Z",
               "EditorCaption": ""
             }
           ]

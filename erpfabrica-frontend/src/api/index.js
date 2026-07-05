@@ -80,7 +80,8 @@ export default apiClient;
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000',
+  /* baseURL: import.meta.env.VITE_API_BASE_URL || 'https://localhost:7276', */
+  baseURL:'https://localhost:7276/api/'
 });
 
 apiClient.interceptors.request.use(config => {
@@ -91,7 +92,8 @@ apiClient.interceptors.request.use(config => {
   const tenantId = localStorage.getItem('tenantId');
   if (tenantId && !config.url.includes('{tenantId}')) {
     if (!config.url.match(/^\/api\/[^/]+\//)) {
-      config.url = `/api/${tenantId}${config.url}`;
+    /*   config.url = `/api/${tenantId}${config.url}`; */
+      config.url = `${tenantId}${config.url}`;  
     }
   }
   return config;

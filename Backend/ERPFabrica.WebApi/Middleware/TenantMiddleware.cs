@@ -1,5 +1,6 @@
 ﻿// TenantMiddleware.cs
 using ERPFabrica.Application.Interfaces;
+using ERPFabrica.Infrastructure.Data;
 
 namespace ERPFabrica.WebApi.Middleware
 {
@@ -35,6 +36,7 @@ namespace ERPFabrica.WebApi.Middleware
 
                 // Establece el tenant actual en el proveedor para los filtros globales
                 tenantProvider.SetTenant(routeTenantId);
+                TenantContext.CurrentTenantId = routeTenantId; // ← nuevo
             }
 
             await _next(context);

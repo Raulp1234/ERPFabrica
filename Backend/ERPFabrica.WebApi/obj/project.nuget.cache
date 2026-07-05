@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "smV3su9IAXQ=",
+  "dgSpecHash": "dz0zUMwKFIs=",
   "success": true,
-  "projectFilePath": "C:\\Proyectos\\SAAS\\ERPFabrica\\ERPFabrica.WebApi\\ERPFabrica.WebApi.csproj",
+  "projectFilePath": "C:\\Proyectos\\SAAS\\ERPFabrica\\Backend\\ERPFabrica.WebApi\\ERPFabrica.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Raúl\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Raúl\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

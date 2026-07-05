@@ -26,6 +26,7 @@ namespace ERPFabrica.Application.Services
         public async Task<TenantConfigDto> ObtenerConfiguracionAsync(int tenantId)
         {
             ValidarTenant(tenantId);
+            var t = await _context.TenantConfigs.AnyAsync();
             var config = await _context.TenantConfigs.FirstOrDefaultAsync(c => c.TenantId == tenantId);
             if (config == null) throw new NegocioException("Configuración no encontrada.");
             return MapToDto(config);

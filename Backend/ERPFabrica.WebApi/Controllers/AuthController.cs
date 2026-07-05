@@ -66,6 +66,30 @@ namespace ERPFabrica.WebApi.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
+
+        /// <summary>
+        /// Refrescar token JWT.
+        /// </summary>
+        [HttpPost("Generar hash")]
+        [ProducesResponseType(typeof(LoginResponseDto), 200)]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> GenerarHash([FromBody] RefreshTokenRequestDto request)
+        {
+            try
+            {
+                string hash = BCrypt.Net.BCrypt.HashPassword("Admin123!");
+                Console.WriteLine(hash);
+                return Ok(new RefreshTokenRequestDto
+                {
+                    Token = hash,
+                   
+                });
+            }
+            catch (NegocioException ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
     }
 
     // DTOs locales (podrían ir en una carpeta DTOs/Requests)

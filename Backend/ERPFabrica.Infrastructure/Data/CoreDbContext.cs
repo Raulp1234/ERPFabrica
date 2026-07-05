@@ -312,6 +312,9 @@ namespace ERPFabrica.Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            // Expresión que obtiene el TenantId actual desde el AsyncLocal
+            var getTenantIdMethod = typeof(TenantContext).GetProperty(nameof(TenantContext.CurrentTenantId))!.GetGetMethod()!;
+
             // --------------------------------------------------
             // Filtros globales multi-tenant y soft delete (DINÁMICOS)
             // --------------------------------------------------
@@ -320,20 +323,41 @@ namespace ERPFabrica.Infrastructure.Data
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
                 // Solo para entidades que implementan IHasTenant (excepto Tenant en sí)
+                //if (typeof(IHasTenant).IsAssignableFrom(entityType.ClrType) &&
+                //    entityType.ClrType != typeof(Tenant))
+                //{
+                //    var parameter = Expression.Parameter(entityType.ClrType, "e");
+                //    // Acceso a la propiedad TenantId
+                //    var tenantProp = Expression.Property(parameter, nameof(IHasTenant.TenantId));
+                //    // Acceso al valor actual de _tenantProvider.TenantId (evaluado en tiempo de consulta)
+                //    var currentTenantId = Expression.Property(
+                //        Expression.Constant(_tenantProvider),
+                //        nameof(ITenantProvider.TenantId)
+                //    );
+                //    var tenantFilter = Expression.Equal(tenantProp, currentTenantId);
+
+                //    // Si además implementa IHasSoftDelete, añade filtro de no eliminado
+                //    if (typeof(IHasSoftDelete).IsAssignableFrom(entityType.ClrType))
+                //    {
+                //        var isDeletedProp = Expression.Property(parameter, nameof(IHasSoftDelete.IsDeleted));
+                //        var falseConstant = Expression.Constant(false);
+                //        var softDeleteFilter = Expression.Equal(isDeletedProp, falseConstant);
+                //        tenantFilter = Expression.AndAlso(tenantFilter, softDeleteFilter);
+                //    }
+
+                //    var lambda = Expression.Lambda(tenantFilter, parameter);
+                //    modelBuilder.Entity(entityType.ClrType).HasQueryFilter(lambda);
+                //}
                 if (typeof(IHasTenant).IsAssignableFrom(entityType.ClrType) &&
-                    entityType.ClrType != typeof(Tenant))
+            entityType.ClrType != typeof(Tenant))
                 {
                     var parameter = Expression.Parameter(entityType.ClrType, "e");
-                    // Acceso a la propiedad TenantId
                     var tenantProp = Expression.Property(parameter, nameof(IHasTenant.TenantId));
-                    // Acceso al valor actual de _tenantProvider.TenantId (evaluado en tiempo de consulta)
-                    var currentTenantId = Expression.Property(
-                        Expression.Constant(_tenantProvider),
-                        nameof(ITenantProvider.TenantId)
-                    );
-                    var tenantFilter = Expression.Equal(tenantProp, currentTenantId);
 
-                    // Si además implementa IHasSoftDelete, añade filtro de no eliminado
+                    // Llamada a TenantContext.CurrentTenantId (evaluado en cada consulta)
+                    var getTenantCall = Expression.Call(getTenantIdMethod);
+                    var tenantFilter = Expression.Equal(tenantProp, getTenantCall);
+
                     if (typeof(IHasSoftDelete).IsAssignableFrom(entityType.ClrType))
                     {
                         var isDeletedProp = Expression.Property(parameter, nameof(IHasSoftDelete.IsDeleted));
@@ -345,7 +369,7 @@ namespace ERPFabrica.Infrastructure.Data
                     var lambda = Expression.Lambda(tenantFilter, parameter);
                     modelBuilder.Entity(entityType.ClrType).HasQueryFilter(lambda);
                 }
-            }
+        }
 
             // --------------------------------------------------
             // Configuraciones Fluent API
