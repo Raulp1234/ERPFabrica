@@ -223,8 +223,8 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { useAuthStore } from '@/stores/auth';
-import { useTenantConfigStore } from '@/stores/tenant';
+import { useAuthStore } from '../../stores/auth';
+import { useTenantConfigStore } from '../../stores/tenant';
 import { toast } from 'vue3-toastify';
 
 const route = useRoute();
